@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "string.h"
 
 int main(){
@@ -8,6 +9,9 @@ int main(){
 			*/
 	string a;
 	a.print();
+	string b(a);
+	a.print();
+	b.print();
 	
   return 0;
 }
