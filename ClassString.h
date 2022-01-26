@@ -1,14 +1,19 @@
 #ifndef CLASSSTRING
 #define CLASSSTRING
 
+#include <cstddef>
+
 class ClassString
 {
   public:
-  	ClassString();
-    ClassString(const char*);
+  	ClassString(); //default constructor
+    ClassString(const char*); //constructor from a c-string  
   	void printmot();
+    int length();
+    int max_size() const;
+    char* resize(std::size_t, char);
     //int capacity();
-    ~ ClassString();
+    ~ ClassString(); //destructor
 
   protected:
   	char* p;

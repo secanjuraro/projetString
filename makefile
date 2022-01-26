@@ -1,11 +1,11 @@
-test: test.o ClassString.o
-	g++ -o test test.o ClassString.o
+test: string_tests.o ClassString.o
+	g++ -o test string_tests.o ClassString.o
 
-test.o: test.cpp ClassString.h
-	g++ -o test.o -c test.cpp
+string_tests.o: string_tests.cpp ClassString.h
+	g++ -o string_tests.o -c string_tests.cpp
 
 ClassString.o: ClassString.cpp ClassString.h
 	g++ -o ClassString.o -c ClassString.cpp
 
 clean:
-	rm test test.o ClassString.o
+	rm test string_tests.o ClassString.o
