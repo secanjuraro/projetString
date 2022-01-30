@@ -10,16 +10,16 @@ int main(){
     size_t chain_mem = 11;
     char* chain =  new char[chain_mem];
     chain[0]='H';
-	chain[1]='e';
-	chain[2]='l';
-	chain[3]='l';
-	chain[4]='o';
-	chain[5]=' ';
-	chain[6]='W';
-	chain[7]='o';
-	chain[8]='r';
-	chain[9]='l';
-	chain[10]='d';
+  	chain[1]='e';
+  	chain[2]='l';
+  	chain[3]='l';
+  	chain[4]='o';
+  	chain[5]=' ';
+  	chain[6]='W';
+  	chain[7]='o';
+  	chain[8]='r';
+  	chain[9]='l';
+  	chain[10]='d';
     chain[11]= '\0';
 
     ClassString* mot1 = new ClassString(chain);
@@ -40,7 +40,7 @@ int main(){
     ClassString* motOperatorEgal = mot2;
     std::cout <<"Test operator=(const ClassString&) : "<< std::endl; motOperatorEgal -> printmot();
     //ClassString* motOperatorPlus = mot1 + charEssay;
-    //std::cout <<"Test operator+(const ClassString&, char) : "<< std::endl; 
+    //std::cout <<"Test operator+(const ClassString&, char) : "<< std::endl;
     //motOperatorPlus->printmot();
 
     //Sonia's tests
@@ -49,10 +49,13 @@ int main(){
     memcpy(chain3,chain,chain_mem);
     std::cout << "Testing with chain3: hello world with capacity of 100" << std::endl;
     ClassString mot3 = chain3;
+    std::string hello = "hello";
+    std::string world = "world";
 
     std::cout << "capacity(): " << mot3.capacity() << std::endl;
     std::cout << "empty(): " << mot3.empty() << std::endl;
     std::cout << "reserve(20): old memReserved = " << mot3.capacity(); mot3.reserve(120); std::cout << " new memReserved = " << mot3.capacity() << std::endl;
     std::cout << "reserve(12): old memReserved = " << mot3.capacity(); mot3.reserve(12); std::cout << "  new memReserved = " << mot3.capacity() << std::endl;
     std::cout <<"operator=(chain): "; mot3.printmot();
+    std::cout <<"operator+(hello, world) : "; (hello + world).printmot();
 }

@@ -2,6 +2,7 @@
 #define CLASSSTRING
 
 #include <cstddef>
+#include <string>
 
 class ClassString
 {
@@ -27,6 +28,6 @@ class ClassString
 };
 
 //ClassString operator+(const ClassString&, char);
-
+ClassString operator+(const std::string&, const std::string&);
 
 #endif

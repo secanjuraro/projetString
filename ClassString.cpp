@@ -3,7 +3,6 @@
 #include <cstring>
 #include <cstddef>
 
-
 ClassString::ClassString(){
   p = nullptr;
 }
@@ -96,4 +95,15 @@ void ClassString::reserve(std::size_t n){
 
 ClassString& ClassString::operator=(const char* s){
   return *(new ClassString(s));
+}
+
+ClassString operator+(const std::string& lhs, const std::string& rhs){
+  char* temp_ = new char[lhs.length()+rhs.length()];
+  const char* lhs_c = new char[lhs.length()];
+  lhs_c = lhs.c_str();
+  const char* rhs_c = new char[rhs.length()];
+  rhs_c = rhs.c_str();
+  memcpy(temp_,lhs_c,lhs.length());
+  memcpy(temp_+lhs.length(),rhs_c,rhs.length());
+  return *(new ClassString(temp_));
 }
