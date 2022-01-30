@@ -2,7 +2,6 @@
 #define CLASSSTRING
 
 #include <cstddef>
-#include <string>
 
 class ClassString
 {
@@ -11,7 +10,7 @@ class ClassString
     ClassString(const char*); //constructor from a c-string
     ~ ClassString(); //destructor
     void printmot();
-    int length();
+    int length() const;
     int max_size() const;
     ClassString& operator=(const ClassString&);
     ClassString& resize(std::size_t, char);
@@ -19,7 +18,7 @@ class ClassString
     bool empty();
     void reserve(std::size_t);
     ClassString& operator=(const char*);
-
+    friend ClassString operator+(const ClassString&, const ClassString&);
 
   protected:
   	char* p;
@@ -28,6 +27,6 @@ class ClassString
 };
 
 //ClassString operator+(const ClassString&, char);
-ClassString operator+(const std::string&, const std::string&);
+
 
 #endif
