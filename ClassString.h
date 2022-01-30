@@ -12,7 +12,8 @@ class ClassString
     void printmot();
     int length();
     int max_size() const;
-    char* resize(std::size_t, char);
+    ClassString& operator=(const ClassString&);
+    ClassString& resize(std::size_t, char);
     int capacity();
     bool empty();
     void reserve(std::size_t);
@@ -24,6 +25,8 @@ class ClassString
     int sizeString;
     int memReserved;
 };
+
+//ClassString operator+(const ClassString&, char);
 
 
 #endif
