@@ -19,10 +19,6 @@ ClassString::ClassString(const char* str){
   this -> p[sizeString] = '\0';
 }
 
-ClassString::~ClassString(){
-  delete[] p;
-}
-
 void ClassString::printmot(){
   int i=0;
   for(i=0;i<sizeString;i++){
@@ -66,6 +62,11 @@ ClassString& ClassString::operator=(const ClassString& word){
 //}
 
 // Student C (Sonia Canjura)
+ClassString::~ClassString(){
+  std::cout << "Deleting "; printmot();
+  delete[] p;
+}
+
 int ClassString::capacity(){
   return memReserved;
 }
