@@ -32,6 +32,7 @@ void ClassString::printmot(){
   std::cout << std::endl;
 }
 
+// Student B (Maëva Beugin)
 int ClassString::length(){ //returns the length of the word without counting "/0"
   return sizeString;
 }
@@ -40,22 +41,32 @@ int ClassString::max_size() const{ //returns the maximum size of a word
   return memReserved;
 }
 
-char* ClassString::resize(std::size_t n, char c){ //return a word with the length n
+ClassString& ClassString::resize(std::size_t n, char c){ //return a word with the length n
     if (n > sizeString){
         for (int i=sizeString; i<n; i++)
             p[i] = c;
     }
     else if (n < sizeString){
-        sizeString = n;
         char* newp;
-        for (int j=0; j<sizeString; j++){
+        for (int j=0; j<n; j++){
             newp[j]= p[j];
         }
         p = newp;
     }
-    return p;
+    sizeString = n;
+
+    return *(new ClassString(p));
 }
 
+ClassString& ClassString::operator=(const ClassString& word){
+  return *(new ClassString(word));
+}
+
+//ClassString operator+(const ClassString& word, char l){
+//  return ;
+//}
+
+// Student C (Sonia Canjura)
 int ClassString::capacity(){
   return memReserved;
 }
