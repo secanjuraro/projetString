@@ -8,4 +8,4 @@ ClassString.o: ClassString.cpp ClassString.h
 	g++ -o ClassString.o -c ClassString.cpp
 
 clean:
-	rm test string_tests.o ClassString.o
+		rm -f *.o *.c test
