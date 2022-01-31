@@ -2,9 +2,17 @@
 #include <iostream>
 #include <cstring>
 #include <cstddef>
+using namespace std;
 
 ClassString::ClassString(){
   p = nullptr;
+}
+
+ClassString::ClassString(const ClassString& str){
+	p = new char[str.memReserved];
+	memcpy(p,str.p,str.sizeString);
+	sizeString = str.sizeString;
+	memReserved = str.memReserved;
 }
 
 ClassString::ClassString(const char* str){
@@ -26,7 +34,44 @@ void ClassString::printmot(){
   }
   std::cout << std::endl;
 }
+// Student A(Blanc Théo)
+const char* ClassString::c_str(){
+	return p;
+}
 
+int ClassString::size(){
+	return sizeString;
+}
+
+void ClassString::clear(){
+	delete p;
+	p = new char[1]();
+	p[0] = '\0';
+	sizeString = 0;
+	memReserved = 0;
+}
+
+ClassString& ClassString::operator=(char c){
+	clear();
+  p = new char[2];
+	p[0] = c;
+	p[1] = '\0';
+	sizeString = 1;
+	memReserved = 1;
+	return *this;
+	
+}
+
+ClassString operator+(const ClassString& lhs,const char* rhs){
+  ClassString str;
+	str.p = new char[lhs.sizeString + strlen(rhs) + 1];
+	std::strcpy(str.p,lhs.p);
+	std::strcat(str.p,rhs);
+	str.sizeString = lhs.sizeString + strlen(rhs);
+	str.memReserved = lhs.sizeString + strlen(rhs);
+	return str;
+	
+}
 // Student B (Maëva Beugin)
 int ClassString::length() const{ //returns the length of the word without counting "/0"
   return sizeString;
@@ -54,6 +99,7 @@ ClassString& ClassString::resize(std::size_t n, char c){ //return a word with th
 }
 
 ClassString& ClassString::operator=(const ClassString& word){
+  
   return *(new ClassString(word));
 }
 
