@@ -23,22 +23,22 @@ int main(){
     chain[11]= '\0';
 
     ClassString* mot1 = new ClassString(chain);
-	
+
 	//Test functions Student A (Blanc Théo)
     std::cout << "****  Student A :  ****" << std::endl;
-	ClassString* mot4 = mot1; // test of the copy constructor
-	mot4 -> printmot();
-	const char* j = mot4->c_str();
-	ClassString* mot5 = new ClassString(j); // test of the c_str function
-	mot5->printmot();
-	std::cout <<"Word size is : " << mot4 -> size()<< std::endl;
-	mot5->clear();
-	mot5->printmot();
+    ClassString* mot4 = mot1; // test of the copy constructor
+    mot4 -> printmot();
+    const char* j = mot4->c_str();
+    ClassString* mot5 = new ClassString(j); // test of the c_str function
+    mot5->printmot();
+    std::cout <<"Word size is : " << mot4 -> size()<< std::endl;
+    mot5->clear();
+    mot5->printmot();
     *mot5 = 'a'; // testing the = operator
-	mot5->printmot();
+    mot5->printmot();
     ClassString mot6 = *mot5 + "fff";
     mot6.printmot();
-	
+
     std::cout << std::endl;
 
     // Test functions Student B (Maëva Beugin)
@@ -77,6 +77,6 @@ int main(){
     /* Manual deletion of pointers */
     delete mot1; //mot1 is not deleted automatically
     delete mot2; //mot2 is not deleted automatically
-	delete mot5;
+	  delete mot5;
     delete[] chain3; //chain3 is not deleted automatically
  }

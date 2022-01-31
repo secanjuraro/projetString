@@ -6,6 +6,8 @@ using namespace std;
 
 ClassString::ClassString(){
   p = nullptr;
+  memReserved = 0;
+  sizeString = 0;
 }
 
 ClassString::ClassString(const ClassString& str){
@@ -129,6 +131,9 @@ bool ClassString::empty(){
 
 void ClassString::reserve(std::size_t n){
   if (n>memReserved){
+    if(n>100){ //100 is the max capacity as specified by assignment
+      n = 100;
+    }
     char* temp_ = new char[n];
     memcpy(temp_,p,memReserved);
     memReserved = n;
